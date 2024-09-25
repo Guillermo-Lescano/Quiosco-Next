@@ -1,4 +1,5 @@
 import { prisma } from "@/src/lib/prisma";
+import CategoryIcon from "../ui/CategoryIcon";
 
 type Props = {};
 
@@ -8,8 +9,16 @@ async function getCategories() {
 
 const OrderSidebar = async (props: Props) => {
   const categories = await getCategories();
-  console.log(categories);
-  return <aside className="md:w-72 md:h-screen bg-white">Order Aside</aside>;
+
+  return (
+    <aside className="md:w-72 md:h-screen bg-white">
+      <nav className="mt-10">
+        {categories.map((category) => (
+          <CategoryIcon key={category.id} category={category} />
+        ))}
+      </nav>
+    </aside>
+  );
 };
 
 export default OrderSidebar;
