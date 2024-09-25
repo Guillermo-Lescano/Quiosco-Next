@@ -11,17 +11,17 @@ model Category {
   id       Int       @id @default(autoincrement())
   name     String
   slug     String
-  Products Product[] //esto hace que una categoria puede tener muchos productos
+  products Product[] //esto hace que una categoria puede tener muchos productos
   //con esto podemos hacer category.products y trae el arreglo con todos los productos de esa categoria
 }
 
 model Product {
   //un producto solo tiene una categoria
   id         Int      @id @default(autoincrement())
-  nombre     String
+  name       String
   price      Float
   image      String
-  categotyId Int
-  category   Category @relation(fields: [categotyId], references: [id])
+  categoryId Int //esta es la llave foranea de la llave primaria de category que conecta producto con el id de categoria
+  category   Category @relation(fields: [categoryId], references: [id])
   // Lo que hacemos aca es que decimos que "La tabla Category se relaciona:(con el campo categoryId de Product, y hace referencia al id de Category)"
 }

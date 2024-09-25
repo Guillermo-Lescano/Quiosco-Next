@@ -1,8 +1,7 @@
 type Props = {};
 
-const page = (props: Props) => {
-  console.log("desde el servidor");
+const ProductsPage = (props: Props) => {
   return <h1>Products Page</h1>;
 };
 
-export default page;
+export default ProductsPage;
