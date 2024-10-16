@@ -1,9 +1,20 @@
+import Image from "next/image";
 import { Category } from "@prisma/client";
 
 type CategoryIconProps = {
-  category: Category; //el category es el que viene de la base de datos por ende ya trae los datos internos de la db (id, categoryId, name, slug)
+  category: Category; //el Category es el que viene de la base de datos por ende ya trae los datos internos de la db (id, categoryId, name, slug)
 };
 
 export default function CategoryIcon({ category }: CategoryIconProps) {
-  return <div>{category.name}</div>;
+  console.log({ category });
+  return (
+    <div
+      className={` flex items-center gap-4 w-full border-t border-gray-200 p-3 last-of-type:border-b`}
+    >
+      <div className="w-16 h-16 relative">
+        <Image fill src={`/icon_${category.slug}.svg`} alt="Imagen Categoria" />
+      </div>
+      <p className="text-xl font-bold">{category.name}</p>
+    </div>
+  );
 }
