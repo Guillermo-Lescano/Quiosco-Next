@@ -7,7 +7,6 @@ type CategoryIconProps = {
 };
 
 export default function CategoryIcon({ category }: CategoryIconProps) {
-  console.log({ category });
   return (
     <div
       className={` flex items-center gap-4 w-full border-t border-gray-200 p-3 last-of-type:border-b`}
