@@ -24,6 +24,9 @@ export default async function OrderPage({
   //con los params lo que HAcemos es leer el parametro category que esta en la url, osea es el dato pasado por query
   return (
     <>
+      <h1 className="text-2xl my-10">
+        Elige y personaliza tu pedido a continuaión
+      </h1>
       <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-4 items-start">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
